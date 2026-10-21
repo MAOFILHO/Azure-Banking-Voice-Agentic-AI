@@ -2,8 +2,9 @@
 
 **Canonical project path**: as of 2026-10-21 this is a standalone repo, `MAOFILHO/Azure-Banking-Voice-Agentic-AI`
 (`main`), extracted from the `Portfolio-Projects` monorepo with `git filter-repo`: history from before the
-extraction covers this project's folder only, and the project's ~47 GitHub issues (and PRs #63, #64
-referenced in the handoffs) stay in `MAOFILHO/Portfolio-Projects`. The earlier monorepo-era path rules
+extraction covers this project's folder only, and the project's 49 GitHub issues were transferred here on 2026-10-21 (new numbers: old→new
+map in `docs/issue-number-map.md`; docs written earlier cite the old numbers). PRs #63, #64
+referenced in the handoffs stay in `MAOFILHO/Portfolio-Projects`. The earlier monorepo-era path rules
 and the `azure-banking-work` worktree split are over. Work happens directly on `main` — no feature
 branch, no PR — a deliberate choice for a solo portfolio project at this stage.
 
