@@ -1,20 +1,16 @@
 # CLAUDE.md — Azure-Banking-Voice-Agentic-AI
 
-**Canonical project path**: as of 2026-09-15, active work happens at
-`/Users/marco/K21/Real-world/Azure-Banking-Voice-Agentic-AI`, branch `main`, inside the
-`Portfolio-Projects` monorepo (`git@github.com:MAOFILHO/Portfolio-Projects.git`). The worktree split
-recorded below (2026-08-20 through 2026-09-14) is over: the `azure-banking-work` branch's work was
-merged to `main` (PRs #63, #64) and the worktree at
-`/Users/marco/K21/Real-world-worktrees/azure-banking` was removed on 2026-09-15. There is one
-checkout again. Work happens directly on `main` — no feature branch, no PR — a deliberate choice for
-a solo portfolio project at this stage.
+**Canonical project path**: as of 2026-10-21 this is a standalone repo, `MAOFILHO/Azure-Banking-Voice-Agentic-AI`
+(`main`), extracted from the `Portfolio-Projects` monorepo with `git filter-repo`: history from before the
+extraction covers this project's folder only, and the project's ~47 GitHub issues (and PRs #63, #64
+referenced in the handoffs) stay in `MAOFILHO/Portfolio-Projects`. The earlier monorepo-era path rules
+and the `azure-banking-work` worktree split are over. Work happens directly on `main` — no feature
+branch, no PR — a deliberate choice for a solo portfolio project at this stage.
 
-**A session that finds itself anywhere other than the path above stops and switches — it does not
-work there.** Don't trust this file's own text to have kept up (it's gone stale twice already): run
-`git branch --show-current` and `git worktree list` at session start. If the current branch isn't
-`main`, or the working directory isn't the path above, stop before making any change — including a
-change to this file — and tell Marco where the session actually landed rather than silently
-continuing or silently relocating.
+A session starts by running `git branch --show-current`: if it isn't `main`, stop before making any
+change — including a change to this file — and tell Marco where the session actually landed. The
+monorepo's shared pre-commit scope check (`check_project_root_scope.py`) was retired with the
+extraction; the whole repo is now the project root.
 
 ### STOP CONDITIONS — absolute, no exceptions
 

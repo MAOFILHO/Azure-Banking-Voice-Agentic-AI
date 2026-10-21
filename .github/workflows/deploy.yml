@@ -1,0 +1,62 @@
+name: Deploy
+
+# Manual-dispatch only (D3, docs/phase7/exit-criteria.md) -- never on
+# push, never on a schedule. Authenticates via GitHub OIDC federated credentials (D4, already set up
+# 2026-09-16): no Azure service-principal secret is stored anywhere in this repo or its settings,
+# only the three IDs AZURE_CLIENT_ID/AZURE_TENANT_ID/AZURE_SUBSCRIPTION_ID name below, which are not
+# credentials themselves.
+#
+# STANDALONE-REPO NOTE: the federated credential D4 created trusts the old monorepo subject
+# (repo:MAOFILHO/Portfolio-Projects:ref:refs/heads/main). Before this workflow can log in from
+# MAOFILHO/Azure-Banking-Voice-Agentic-AI it needs a second federated credential trusting
+# repo:MAOFILHO/Azure-Banking-Voice-Agentic-AI:ref:refs/heads/main, and AZURE_CLIENT_ID /
+# AZURE_TENANT_ID / AZURE_SUBSCRIPTION_ID must be set as repo secrets here -- repo-level secrets do
+# not carry over from the monorepo.
+#
+# DOCKERHUB_PASSWORD is a separate secret this workflow needs and that D4's setup did not create --
+# add it under Settings > Secrets and variables > Actions before running this for the first time.
+on:
+  workflow_dispatch:
+    inputs:
+      voice_agent_image:
+        description: "Voice-agent image, full ref including tag (never :latest)"
+        required: true
+      core_banking_image:
+        description: "Mock core-banking image, full ref including tag (never :latest)"
+        required: true
+
+permissions:
+  id-token: write
+  contents: read
+
+concurrency:
+  group: azure-banking-voice-agentic-ai-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Azure login (OIDC, no stored secret)
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Install azbank-deploy
+        run: pip install -e .
+
+      - name: Deploy (resumes from wherever a previous run left off)
+        run: azbank-deploy deploy
+        env:
+          VOICE_AGENT_IMAGE: ${{ inputs.voice_agent_image }}
+          CORE_BANKING_IMAGE: ${{ inputs.core_banking_image }}
+          DOCKERHUB_USERNAME: maofilho
+          DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}

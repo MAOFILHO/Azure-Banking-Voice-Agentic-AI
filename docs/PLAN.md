@@ -404,8 +404,8 @@ Azure-Banking-Voice-Agentic-AI/
 └── pyproject.toml
 ```
 
-CI at the **monorepo root**: `.github/workflows/azure-banking-voice-agentic-ai-{ci,deploy,teardown}.yml`,
-scoped via `paths:`. Issues titled `[Azure-Banking-Voice-Agentic-AI] …`.
+CI in `.github/workflows/{ci,deploy,teardown}.yml` (standalone repo since 2026-10-21; previously at the
+`Portfolio-Projects` monorepo root, scoped via `paths:`). Issues titled `[Azure-Banking-Voice-Agentic-AI] …`.
 Commits: `type(project-phase): D<n>/OI<n> -- prose`.
 
 ---

@@ -8,7 +8,7 @@
 ![Phase](https://img.shields.io/badge/Phase-8_of_8_(closed)-2ea043?style=flat&labelColor=1a1a2e)
 ![Budget](https://img.shields.io/badge/Ceiling-$25%2Fmo_(spendingLimit%3A_Off)-2ea043?style=flat&labelColor=1a1a2e)
 
-[![CI](https://github.com/MAOFILHO/Portfolio-Projects/actions/workflows/azure-banking-voice-agentic-ai-ci.yml/badge.svg?branch=main)](https://github.com/MAOFILHO/Portfolio-Projects/actions/workflows/azure-banking-voice-agentic-ai-ci.yml)
+[![CI](https://github.com/MAOFILHO/Azure-Banking-Voice-Agentic-AI/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/MAOFILHO/Azure-Banking-Voice-Agentic-AI/actions/workflows/ci.yml)
 
 ## Project Description
 
@@ -18,7 +18,7 @@ hard **$25/month** ceiling that Azure itself will not enforce (`spendingLimit: O
 subscription).
 
 **This is the deliberate Azure counterpart to
-[`AWS-Insurance-FNOL-Voice-Agentic-AI`](../AWS-Insurance-FNOL-Voice-Agentic-AI)** — same portfolio,
+[`AWS-Insurance-FNOL-Voice-Agentic-AI`](https://github.com/MAOFILHO/AWS-Insurance-FNOL-Voice-Agentic-AI)** — same portfolio,
 same rigor, different cloud, different domain. Symmetry is kept where a reviewer would expect to see
 it (`docs/adr/`, phase docs, `PROJECT_STATE.md`, `COSTS.md`, commit convention) and dropped where the
 clouds genuinely differ (Bicep instead of Terraform; a DTMF PIN path with no FNOL analog; one realtime
@@ -470,8 +470,8 @@ sampled live-model adversarial subset, weekly/on-demand, its own $-cap). **Neith
 ## CI/CD — GitHub Actions
 
 One workflow,
-[`Azure-Banking-Voice-Agentic-AI CI`](https://github.com/MAOFILHO/Portfolio-Projects/actions/workflows/azure-banking-voice-agentic-ai-ci.yml),
-runs `make lint` then `make test` on every push and PR touching this project's folder, scoped to `main`.
+[`CI`](https://github.com/MAOFILHO/Azure-Banking-Voice-Agentic-AI/actions/workflows/ci.yml),
+runs `make lint` then `make test` on every push and PR to `main`.
 **First run: 2026-09-14, on the merge of this project's own history to `main`** — green (lint clean, 607
 tests passing).
 
@@ -573,10 +573,10 @@ that already looked fine.
 | [`docs/phase0/findings.md`](docs/phase0/findings.md) | Every raw finding Phase 0 produced, in the order it was found |
 | [`docs/handoffs/`](docs/handoffs/) | More than 20 session handoff documents, written at phase/context boundaries |
 
-This project is one top-level folder in the
-[`MAOFILHO/Portfolio-Projects`](https://github.com/MAOFILHO/Portfolio-Projects) monorepo, and the
-deliberate Azure counterpart to
-[`AWS-Insurance-FNOL-Voice-Agentic-AI`](../AWS-Insurance-FNOL-Voice-Agentic-AI) in the same repo.
+This project was extracted from the
+[`MAOFILHO/Portfolio-Projects`](https://github.com/MAOFILHO/Portfolio-Projects) monorepo (its earlier
+issues and PRs remain there), and is the deliberate Azure counterpart to
+[`AWS-Insurance-FNOL-Voice-Agentic-AI`](https://github.com/MAOFILHO/AWS-Insurance-FNOL-Voice-Agentic-AI).
 
 ## Author
 

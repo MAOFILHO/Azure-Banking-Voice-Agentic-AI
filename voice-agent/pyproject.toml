@@ -90,9 +90,9 @@ test = [
 include = ["azbank_voice_agent*"]
 
 [tool.ruff]
-# 120, not 100: the package source wraps at 100 by hand, but scripts/check_project_root_scope.py
-# (Phase 0, not written to a limit) sits in the 101-110 range throughout. A cap is a cap, not a
-# target -- picking one that reformats a working Phase 0 script would be churn, not lint.
+# 120, not 100: the package source wraps at 100 by hand, but some Phase 0 scripts (not written to a
+# limit) sit in the 101-110 range. A cap is a cap, not a target -- picking one that reformats a
+# working Phase 0 script would be churn, not lint.
 line-length = 120
 # Both deployables plus the tests and helper scripts, run from the project root.
 extend-exclude = [".venv"]
